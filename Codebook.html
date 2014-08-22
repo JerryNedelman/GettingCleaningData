@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>Codebook for averages.txt</title>
+
+<base target="_blank"/>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Codebook for averages.txt</h1>
+
+<h2>Introduction</h2>
+
+<p>averages.txt is the output of the course project for the Coursera course Getting and Cleaning Data. </p>
+
+<p>As explained in the project assignment: <br/>
+One of the most exciting areas in all of data science right now is wearable computing - see for example <br/>
+<a href="http://www.insideactivitytracking.com/data-science-activity-tracking-and-the-battle-for-the-worlds-top-sports-brand/">this article</a>. Companies like Fitbit, Nike, and Jawbone Up are racing to develop the <br/>
+most advanced algorithms to attract new users. The source data for the creation of averages.txt <br/>
+represents data collected from accelerometers in Samsung Galaxy S smartphones. A full description is <br/>
+available <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">here</a>.</p>
+
+<p>Here is a brief description of the source data from the README file at the above website:<br/>
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. <br/>
+Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, <br/>
+LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and <br/>
+gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of <br/>
+50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been <br/>
+randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training <br/>
+data and 30% the test data. </p>
+
+<p>The training and test data sets are 7352x561 and 2947x561, respectively. Each row corresponds to a <br/>
+set of signal-processed variables for a particular subject performing a particular activity. There are<br/>
+561 such signal-processed variables, which comprise the columns. The subjects and activities associated<br/>
+with the rows are contained in separate data sets; see Inputs, below.</p>
+
+<p>The project assignment was as follows:<br/>
+The goal is to prepare tidy data that can be used for later analysis. You will be graded by your peers on <br/>
+a series of yes/no questions related to the project. You will be required to submit: 1) a tidy data set <br/>
+as described below, 2) a link to a Github repository with your script for performing the analysis, and 3) <br/>
+a code book that describes the variables, the data, and any transformations or work that you performed to <br/>
+clean up the data called CodeBook.md. You should also include a README.md in the repo with your scripts. <br/>
+This readme file explains how all of the scripts work and how they are connected. </p>
+
+<p>You should create one R script called run_analysis.R that does the following. <br/>
+1. Merges the training and the test sets to create one data set.<br/>
+2. Extracts only the measurements on the mean and standard deviation for each measurement. <br/>
+3. Uses descriptive activity names to name the activities in the data set<br/>
+4. Appropriately labels the data set with descriptive variable names. <br/>
+5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.</p>
+
+<h2>Inputs</h2>
+
+<p><a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">This zip file</a> was downloaded per instructions from the course website.<br/>
+It was unzipped and found to contain several files, among which the following were used:</p>
+
+<ul>
+<li>train/X_train.txt:  Training data set. 7352x561.</li>
+<li>test/X_test.txt: Test data set. 2947x561.</li>
+<li></li>
+<li>features.txt: Identifiers of the 561 variables (columns) in the training and test data sets. 561x1.</li>
+<li></li>
+<li>train/y_train.txt: Activity codes (1, 2, &hellip;, 6) for rows of the training data. 7352x1.</li>
+<li>test/y_test.txt: Activity codes (1, 2, &hellip;, 6) for rows of the test data. 2947x1.</li>
+<li>activity_labels.txt: Activity names (WALKING, &hellip;) corresponding to the activity codes. 6x1.</li>
+<li></li>
+<li>train/subject_train.txt: Subject numbers corresponding to rows in the training data. 7352x1.</li>
+<li>test/subject_test.txt: Subject numbers corresponding to rows in the test data. 2947x1</li>
+</ul>
+
+<h2>Program flow, including transformations of the data.</h2>
+
+<ol>
+<li><p>From features.txt, identify variables, i.e., columns of training and test data sets, <br/>
+that contain means and standard deviations.</p></li>
+<li><p>A feature identifier consists of a number, corresponding to the column number<br/>
+in the data set, and a name of the feature. <br/>
+Split the number from the name, and eliminate &ldquo;()&rdquo; from the name.</p></li>
+<li><p>Read in training and test data.<br/>
+Retain only columns with means and standard deviations.<br/>
+Assign feature names as column names.</p></li>
+<li><p>Each row of the training and test data sets corresponds to an activity for a subject.<br/>
+Read in the subject identifiers from  test/subject_test.txt and train/subject_train.txt,<br/>
+and cbind with data sets.</p></li>
+<li><p>Read in activity names from activity_labels.txt. These are of the form &ldquo;1 WALKING&rdquo;.<br/>
+Get rid of the digit.</p></li>
+<li><p>Now read in activity labels, which are numeric 1, 2, &hellip;, 6.<br/>
+Convert the labels to the names, then cbind with the data sets.</p></li>
+<li><p>Combine test and training data. Compute output data set of averages by Activity and Subject.<br/>
+Output.</p></li>
+</ol>
+
+<h2>Variables in averages.txt</h2>
+
+<p>The variable names (i.e., column names) in averages.txt are given below.</p>
+
+<p>&ldquo;Activity&rdquo; gives the name of the activity -i.e., one of: <br/>
+  WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING.</p>
+
+<p>&ldquo;Subject&rdquo; gives the subject number -i.e., one of 1, 2, ,&hellip;, 30.</p>
+
+<p>The remaining 79 are names of the signal-processed variables used. For an explanation of what they are,<br/>
+see the file features_info.txt at the <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">website that describes the data</a>.</p>
+
+<p>Per instructions in the assignment, only variables containing means and standard deviations of signals<br/>
+were retained.</p>
+
+<p>For each Activity, Subject, and variable, the value in the data set is the mean of the observations<br/>
+of the variable for the Activity and Subject.</p>
+
+<p>[1] &ldquo;Activity&rdquo;                      &ldquo;Subject&rdquo;                       &ldquo;tBodyAcc-mean-X&rdquo;<br/><br/>
+ [4] &ldquo;tBodyAcc-mean-Y&rdquo;               &ldquo;tBodyAcc-mean-Z&rdquo;               &ldquo;tBodyAcc-std-X&rdquo;<br/><br/>
+ [7] &ldquo;tBodyAcc-std-Y&rdquo;                &ldquo;tBodyAcc-std-Z&rdquo;                &ldquo;tGravityAcc-mean-X&rdquo;<br/><br/>
+[10] &ldquo;tGravityAcc-mean-Y&rdquo;            &ldquo;tGravityAcc-mean-Z&rdquo;            &ldquo;tGravityAcc-std-X&rdquo;<br/><br/>
+[13] &ldquo;tGravityAcc-std-Y&rdquo;             &ldquo;tGravityAcc-std-Z&rdquo;             &ldquo;tBodyAccJerk-mean-X&rdquo;<br/><br/>
+[16] &ldquo;tBodyAccJerk-mean-Y&rdquo;           &ldquo;tBodyAccJerk-mean-Z&rdquo;           &ldquo;tBodyAccJerk-std-X&rdquo;<br/><br/>
+[19] &ldquo;tBodyAccJerk-std-Y&rdquo;            &ldquo;tBodyAccJerk-std-Z&rdquo;            &ldquo;tBodyGyro-mean-X&rdquo;<br/><br/>
+[22] &ldquo;tBodyGyro-mean-Y&rdquo;              &ldquo;tBodyGyro-mean-Z&rdquo;              &ldquo;tBodyGyro-std-X&rdquo;<br/><br/>
+[25] &ldquo;tBodyGyro-std-Y&rdquo;               &ldquo;tBodyGyro-std-Z&rdquo;               &ldquo;tBodyGyroJerk-mean-X&rdquo;<br/><br/>
+[28] &ldquo;tBodyGyroJerk-mean-Y&rdquo;          &ldquo;tBodyGyroJerk-mean-Z&rdquo;          &ldquo;tBodyGyroJerk-std-X&rdquo;<br/><br/>
+[31] &ldquo;tBodyGyroJerk-std-Y&rdquo;           &ldquo;tBodyGyroJerk-std-Z&rdquo;           &ldquo;tBodyAccMag-mean&rdquo;<br/><br/>
+[34] &ldquo;tBodyAccMag-std&rdquo;               &ldquo;tGravityAccMag-mean&rdquo;           &ldquo;tGravityAccMag-std&rdquo;<br/><br/>
+[37] &ldquo;tBodyAccJerkMag-mean&rdquo;          &ldquo;tBodyAccJerkMag-std&rdquo;           &ldquo;tBodyGyroMag-mean&rdquo;<br/><br/>
+[40] &ldquo;tBodyGyroMag-std&rdquo;              &ldquo;tBodyGyroJerkMag-mean&rdquo;         &ldquo;tBodyGyroJerkMag-std&rdquo;<br/><br/>
+[43] &ldquo;fBodyAcc-mean-X&rdquo;               &ldquo;fBodyAcc-mean-Y&rdquo;               &ldquo;fBodyAcc-mean-Z&rdquo;<br/><br/>
+[46] &ldquo;fBodyAcc-std-X&rdquo;                &ldquo;fBodyAcc-std-Y&rdquo;                &ldquo;fBodyAcc-std-Z&rdquo;<br/><br/>
+[49] &ldquo;fBodyAcc-meanFreq-X&rdquo;           &ldquo;fBodyAcc-meanFreq-Y&rdquo;           &ldquo;fBodyAcc-meanFreq-Z&rdquo;<br/><br/>
+[52] &ldquo;fBodyAccJerk-mean-X&rdquo;           &ldquo;fBodyAccJerk-mean-Y&rdquo;           &ldquo;fBodyAccJerk-mean-Z&rdquo;<br/><br/>
+[55] &ldquo;fBodyAccJerk-std-X&rdquo;            &ldquo;fBodyAccJerk-std-Y&rdquo;            &ldquo;fBodyAccJerk-std-Z&rdquo;<br/><br/>
+[58] &ldquo;fBodyAccJerk-meanFreq-X&rdquo;       &ldquo;fBodyAccJerk-meanFreq-Y&rdquo;       &ldquo;fBodyAccJerk-meanFreq-Z&rdquo;<br/><br/>
+[61] &ldquo;fBodyGyro-mean-X&rdquo;              &ldquo;fBodyGyro-mean-Y&rdquo;              &ldquo;fBodyGyro-mean-Z&rdquo;<br/><br/>
+[64] &ldquo;fBodyGyro-std-X&rdquo;               &ldquo;fBodyGyro-std-Y&rdquo;               &ldquo;fBodyGyro-std-Z&rdquo;<br/><br/>
+[67] &ldquo;fBodyGyro-meanFreq-X&rdquo;          &ldquo;fBodyGyro-meanFreq-Y&rdquo;          &ldquo;fBodyGyro-meanFreq-Z&rdquo;<br/><br/>
+[70] &ldquo;fBodyAccMag-mean&rdquo;              &ldquo;fBodyAccMag-std&rdquo;               &ldquo;fBodyAccMag-meanFreq&rdquo;<br/><br/>
+[73] &ldquo;fBodyBodyAccJerkMag-mean&rdquo;      &ldquo;fBodyBodyAccJerkMag-std&rdquo;       &ldquo;fBodyBodyAccJerkMag-meanFreq&rdquo; <br/>
+[76] &ldquo;fBodyBodyGyroMag-mean&rdquo;         &ldquo;fBodyBodyGyroMag-std&rdquo;          &ldquo;fBodyBodyGyroMag-meanFreq&rdquo;<br/><br/>
+[79] &ldquo;fBodyBodyGyroJerkMag-mean&rdquo;     &ldquo;fBodyBodyGyroJerkMag-std&rdquo;      &ldquo;fBodyBodyGyroJerkMag-meanFreq&rdquo;</p>
+
+</body>
+
+</html>
+
